@@ -1,4 +1,4 @@
-FROM docker.io/mysql:10.4
+FROM docker.io/mysql
 #
 ENV MYSQL_RANDOM_ROOT_PASSWORD yes
 ENV MYSQL_DATABASE glpi
