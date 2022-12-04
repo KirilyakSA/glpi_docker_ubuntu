@@ -4,11 +4,11 @@ services:
     image: kirilyaksa/glpi-docker/mysql
     restart: unless-stopped
     volumes:
-      - mariadb-glpi-volume:/var/lib/mysql:rw
+      - mysql-glpi-volume:/var/lib/mysql:rw
     environment:
       MYSQL_DATABASE: glpi
-      MYSQL_USER: glpi-user
-      MYSQL_PASSWORD: glpi-pass
+      MYSQL_USER: sergey
+      MYSQL_PASSWORD: genius123
       MYSQL_RANDOM_ROOT_PASSWORD: 1
     ports:
       - 3306:3306
@@ -17,23 +17,23 @@ services:
   #
   #
   glpi:
-    image: fametec/glpi:9.5.6
+    image: irilyaksa/glpi-docker/glpi:9.5.6
     restart: unless-stopped
     volumes:
       - glpi-volume-files:/var/www/html/files:rw
       - glpi-volume-plugins:/var/www/html/plugins:rw
       - glpi-volume-config:/var/www/html/config:rw
     environment:
-      GLPI_LANG: pt_BR
-      MARIADB_HOST: mariadb-glpi
-      MARIADB_PORT: 3306
-      MARIADB_DATABASE: glpi
-      MARIADB_USER: glpi-user
-      MARIADB_PASSWORD: glpi-pass
+      GLPI_LANG: uk_UA
+      MYSQL_HOST: mariadb-glpi
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: glpi
+      MYSQL_USER: sergey
+      MYSQL_PASSWORD: genius123
       VERSION: "9.5.6"
       PLUGINS: "all"
     depends_on:
-      - mariadb-glpi
+      - mysql-glpi
     ports:
       - 80:80
     networks:
