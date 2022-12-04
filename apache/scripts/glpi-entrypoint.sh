@@ -55,8 +55,8 @@ VerifyKey () {
 
 SetPermissions () {
   echo -n "Setting chown in files and plugins... "
-  chown -R apache:apache /var/www/html/files
-  chown -R apache:apache /var/www/html/plugins
+  chown -R www-data:www-data /var/www/html/files
+  chown -R www-data:www-data /var/www/html/plugins
   echo "done"
 
 }
